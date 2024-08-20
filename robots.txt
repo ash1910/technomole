@@ -1,0 +1,10 @@
+User-agent: Googlebot
+User-agent: google
+User-agent: Bingbot
+User-agent: bing
+User-agent: Slurp
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: *
+Disallow: /
