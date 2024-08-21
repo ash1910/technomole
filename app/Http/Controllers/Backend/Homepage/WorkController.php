@@ -31,7 +31,7 @@ class WorkController extends Controller
             $imgName = date('YmdHi').$img->getClientOriginalName();
             $img->move('public/upload/images/', $imgName);
             $img = Image::make(public_path('upload/images/').$imgName);
-            $img->resize(780,822)->save(public_path('upload/images/').$imgName);
+            $img->resize(700,467)->save(public_path('upload/images/').$imgName);
             $data['image'] = $imgName;
         }
         $data->created_by = Auth::user()->id;
@@ -56,7 +56,7 @@ class WorkController extends Controller
             $imgName = date('YmdHi').$img->getClientOriginalName();
             $img->move('public/upload/images/', $imgName);
             $img = Image::make(public_path('upload/images/').$imgName);
-            $img->resize(780,822)->save(public_path('upload/images/').$imgName);
+            $img->resize(700,467)->save(public_path('upload/images/').$imgName);
             $data['image'] = $imgName;
         }
         $data->updated_by = Auth::user()->id;
