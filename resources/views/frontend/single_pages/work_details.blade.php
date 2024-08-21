@@ -66,7 +66,7 @@
                                                      <div class="elementor-widget-wrap elementor-element-populated">
                                                         <div class="elementor-element elementor-element-7d3d329 elementor-widget elementor-widget-image" data-id="7d3d329" data-element_type="widget" data-widget_type="image.default">
                                                            <div class="elementor-widget-container">
-                                                              <img width="780" height="822" src="{{url('public/upload/images/'.@$service->image)}}" class="attachment-large size-large" alt="" loading="lazy" srcset="{{url('public/upload/images/'.@$service->image)}}"> 
+                                                              <img width="780" height="822" src="{{url('public/upload/images/'.@$work->image)}}" class="attachment-large size-large" alt="" loading="lazy" srcset="{{url('public/upload/images/'.@$work->image)}}"> 
                                                            </div>
                                                         </div>
                                                      </div>
@@ -80,13 +80,13 @@
                                                         </div>
                                                         <div class="elementor-element elementor-element-cb92f3b elementor-widget elementor-widget-text-editor" data-id="cb92f3b" data-element_type="widget" data-widget_type="text-editor.default">
                                                            <div class="elementor-widget-container">
-                                                              <h2>{{@$service->title}}</h2>
+                                                              <h2>{{@$work->title}}</h2>
                                                            </div>
                                                         </div>
                                                         <div class="elementor-element elementor-element-80f01eb elementor-widget elementor-widget-text-editor" data-id="80f01eb" data-element_type="widget" data-widget_type="text-editor.default">
                                                            <div class="elementor-widget-container">
                                                               <d style="text-align: justify;">
-                                                                 <?php echo @$service->description; ?>
+                                                                 <?php echo @$work->description; ?>
                                                               </d>
                                                            </div>
                                                         </div>

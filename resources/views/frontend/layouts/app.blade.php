@@ -148,6 +148,7 @@
                                     <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='About Us')?'current_page_item':''}}"><a href="{{route('frontend.about-us')}}"><span>ABOUT US</span></a></li>
                                     <li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='How We Work')?'current_page_item':''}}"><a href="{{route('frontend.how-we-work')}}"><span>HOW WE WORK</span></a></li>
                                     <li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='Our Services')?'current_page_item':''}}"><a href="{{route('frontend.our-services')}}"><span>SERVICES</span></a></li>
+                                    <li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='Our Services')?'current_page_item':''}}"><a href="{{route('frontend.our-works')}}"><span>WORKS</span></a></li>
                                     <li id="menu-item-69" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='Our Management')?'current_page_item':''}}"><a href="{{route('frontend.our-specialist')}}"><span>OUR MANAGEMENT</span></a></li>
                                     <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page {{(@$page_title=='Contact Us')?'current_page_item':''}}"><a href="{{route('frontend.contact-us')}}"><span>CONTACT</span></a></li>
                                  </ul>

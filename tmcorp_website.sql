@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 21, 2024 at 12:00 PM
+-- Generation Time: Aug 21, 2024 at 12:16 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -1261,7 +1261,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `image`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (2, 'Syed Shakil Ahmed', NULL, 'shakil.ahmed@hnsautomobiles.com', NULL, '$2y$10$5wxg.5174RGljzYPfDj7wuiEfUd4dm8hTD3kQ1dR2iqYeXrwj78Eq', NULL, NULL, NULL, '2022-02-13 11:02:24', '2023-09-03 14:08:25'),
 (3, 'Syed Shakil Ahmed', NULL, 'cto@technomole.com', NULL, '$2y$10$H/QtX9rKVEX6NLNBmMgkGux5A0X5ip/jfaD0L/Kevt9mei3LCJkVy', NULL, NULL, NULL, '2022-02-13 12:23:40', '2022-02-13 12:23:40'),
-(4, 'Mahbub', NULL, 'mahbub@hnsautomobiles.com', NULL, '$2y$10$8k1qaY2l8eFeA5rIUkE8ueB5H3DT6ULoNTISzGd0gGW/4OrdO.W7G', NULL, NULL, NULL, '2023-11-28 13:48:33', '2023-11-28 13:48:33');
+(4, 'Mahbub', NULL, 'mahbub@hnsautomobiles.com', NULL, '$2y$10$8k1qaY2l8eFeA5rIUkE8ueB5H3DT6ULoNTISzGd0gGW/4OrdO.W7G', NULL, NULL, NULL, '2023-11-28 13:48:33', '2023-11-28 13:48:33'),
+(5, 'Aasif', NULL, 'aasif@hnsautomobiles.com', NULL, '$2y$10$S20zKAlAKMK86Migpi8d3.eJNXagT6S8o28HpnpBSpiGxwPfCAb2S', NULL, NULL, NULL, '2024-08-21 00:14:11', '2024-08-21 00:14:11');
 
 -- --------------------------------------------------------
 
@@ -1289,7 +1290,8 @@ INSERT INTO `user_roles` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`
 (36, 55, 19, '2021-06-07 00:09:54', '2021-06-07 00:09:54'),
 (37, 2, 21, '2022-02-13 11:02:24', '2022-02-13 11:02:24'),
 (38, 3, 19, '2022-02-13 12:23:40', '2022-02-16 17:41:26'),
-(39, 4, 19, '2023-11-28 13:48:33', '2023-11-28 13:48:33');
+(39, 4, 19, '2023-11-28 13:48:33', '2023-11-28 13:48:33'),
+(40, 5, 21, '2024-08-21 00:14:11', '2024-08-21 00:14:11');
 
 -- --------------------------------------------------------
 
@@ -1808,13 +1810,13 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `video_categories`
