@@ -129,6 +129,15 @@ Route::middleware(['auth'])->group(function(){
 			Route::get('/service/edit/{id}','Backend\Homepage\ServiceController@serviceEdit')->name('homepages.service.edit');
 			Route::post('/service/update/{id}','Backend\Homepage\ServiceController@serviceUpdate')->name('homepages.service.update');
 			Route::get('/service/delete','Backend\Homepage\ServiceController@serviceDelete')->name('homepages.service.delete');
+
+			// Portfolio
+			Route::get('/work/view','Backend\Homepage\WorkController@workView')->name('homepages.work.view');
+			Route::get('/work/add','Backend\Homepage\WorkController@workAdd')->name('homepages.work.add');
+			Route::post('/work/store','Backend\Homepage\WorkController@workStore')->name('homepages.work.store');
+			Route::get('/work/edit/{id}','Backend\Homepage\WorkController@workEdit')->name('homepages.work.edit');
+			Route::post('/work/update/{id}','Backend\Homepage\WorkController@workUpdate')->name('homepages.work.update');
+			Route::get('/work/delete','Backend\Homepage\WorkController@workDelete')->name('homepages.work.delete');
+
 			//About Us
 			Route::get('/about/view','Backend\Homepage\AboutController@aboutView')->name('homepages.about.view');
 			Route::get('/about/add','Backend\Homepage\AboutController@aboutAdd')->name('homepages.about.add');

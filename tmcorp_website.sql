@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 21, 2024 at 12:16 PM
+-- Generation Time: Aug 21, 2024 at 12:52 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -524,7 +524,8 @@ INSERT INTO `menus` (`id`, `name`, `parent`, `route`, `sort`, `status`, `icon`, 
 (63, 'View Comment', 61, 'communicates.comment.view', 2, 0, '', NULL, NULL),
 (64, 'News Letter', 61, 'communicates.letter.view', 3, 0, '', NULL, NULL),
 (65, 'How We Work', 49, 'homepages.how-work.view', 2, 1, '', NULL, NULL),
-(66, 'View Performance', 49, 'homepages.performance.view', 7, 1, '', NULL, NULL);
+(66, 'View Performance', 49, 'homepages.performance.view', 7, 1, '', NULL, NULL),
+(67, 'View Work', 49, 'homepages.work.view', 3, 1, '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -550,31 +551,33 @@ INSERT INTO `menu_permissions` (`id`, `menu_id`, `role_id`, `permitted_route`, `
 (9, 5, 5, 'user.role', 'menu', '2019-11-05 22:51:45', '2019-11-05 22:51:45'),
 (10, 4, 5, 'user', 'menu', '2019-11-05 22:51:45', '2019-11-05 22:51:45'),
 (11, 6, 5, 'user.permission', 'menu', '2019-11-05 22:51:45', '2019-11-05 22:51:45'),
-(478, 5, 21, 'user.role', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(479, 4, 21, 'user', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(480, 48, 21, 'user', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(481, 6, 21, 'user.permission', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(482, 23, 21, 'profile-management.change.password', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(483, 7, 21, 'profile-management', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(484, 47, 21, 'profile-management.change.profile', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(485, 51, 21, 'homepages.about.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(486, 49, 21, 'homepages', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(487, 65, 21, 'homepages.how-work.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(488, 50, 21, 'homepages.service.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(489, 53, 21, 'homepages.contact.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(490, 54, 21, 'homepages.team.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(491, 59, 21, 'homepages.partner.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(492, 62, 21, 'communicates.communicate.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(493, 61, 21, 'communicates', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(494, 66, 21, 'homepages.performance.view', 'menu', '2022-02-16 15:42:44', '2022-02-16 15:42:44'),
-(495, 49, 19, 'homepages', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(496, 51, 19, 'homepages.about.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(497, 65, 19, 'homepages.how-work.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(498, 50, 19, 'homepages.service.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(499, 53, 19, 'homepages.contact.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(500, 54, 19, 'homepages.team.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(501, 59, 19, 'homepages.partner.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16'),
-(502, 66, 19, 'homepages.performance.view', 'menu', '2022-02-16 17:30:16', '2022-02-16 17:30:16');
+(503, 5, 21, 'user.role', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(504, 4, 21, 'user', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(505, 48, 21, 'user', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(506, 6, 21, 'user.permission', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(507, 23, 21, 'profile-management.change.password', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(508, 7, 21, 'profile-management', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(509, 47, 21, 'profile-management.change.profile', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(510, 51, 21, 'homepages.about.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(511, 49, 21, 'homepages', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(512, 65, 21, 'homepages.how-work.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(513, 50, 21, 'homepages.service.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(514, 53, 21, 'homepages.contact.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(515, 54, 21, 'homepages.team.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(516, 59, 21, 'homepages.partner.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(517, 66, 21, 'homepages.performance.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(518, 62, 21, 'communicates.communicate.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(519, 61, 21, 'communicates', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(520, 67, 21, 'homepages.work.view', 'menu', '2024-08-21 00:39:15', '2024-08-21 00:39:15'),
+(521, 51, 19, 'homepages.about.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(522, 49, 19, 'homepages', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(523, 65, 19, 'homepages.how-work.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(524, 50, 19, 'homepages.service.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(525, 53, 19, 'homepages.contact.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(526, 54, 19, 'homepages.team.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(527, 59, 19, 'homepages.partner.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(528, 66, 19, 'homepages.performance.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38'),
+(529, 67, 19, 'homepages.work.view', 'menu', '2024-08-21 00:39:38', '2024-08-21 00:39:38');
 
 -- --------------------------------------------------------
 
@@ -1384,7 +1387,7 @@ CREATE TABLE `works` (
 
 INSERT INTO `works` (`id`, `title`, `image`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (2, 'B2B & B2C SOLUTIONS', '202202190907B2B.png', '<p><a href=\"https://hnsmartbd.com\">HNSmart</a>&mdash;initially a B2C, is a recent venture of Bangladesh&#39;s flourishing e-commerce sector, built on the expertise and reputation of HNS Group.</p>\r\n\r\n<p>We provide solutions for B2B i.e., a form&nbsp;of transaction conducted between companies, rather than between a company and individual consumer. We also make available solutions for B2C i.e., the&nbsp;process of selling products and services directly between a company and an end-user of a&nbsp;product or service.</p>\r\n\r\n<p>In today&rsquo;s challenging business atmosphere which line up flexibility, swiftness, and competence, a healthy IT&nbsp;approach is crucial. We help you achieve these qualities in your IT strategy by providing you system integration, testing, application development and management services and solutions.</p>', 1, 1, 2, '2022-02-10 22:02:56', '2022-08-02 03:39:28'),
-(3, 'CONSULTANCY & OUTSOURCING', '202202190703IT.png', '<p>We assist customers in evaluating various technology strategies and, as a result, aligning their technology strategy with their business or process objectives. We provide unique outsourcing facilities. You can build your outsourced team in 5 easy steps-</p>\r\n\r\n<p><strong>1 |&nbsp;Free Initial Consultation</strong><br />\r\nStandardize meeting with client and tmc HR team to discuss specific talent needs, goals and job descriptions for your future team.In the bangladesh. During this initial meeting, we will also outline. Potential costs and salaries for your intended positions.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>2 | Sourcing &amp; Initial Interview</strong><br />\r\nWe leverage our excellent employer branding and reputation to attract the best possible talent in the bangladesh. We tap multiple job portals, social media platforms, engage executive search techniques and roll out employee referral programs to gather resumes.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>3 | Contract Signing</strong><br />\r\nOnce successful candidates are identified, TMC prepares the employment offer and contract, then extends them as soon as approval is received. Compensation and benefits packages, as well as KPIs, are clearly defined and start date is agreed upon with candidates.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>4 | Employee Onboarding &amp; Set up</strong><br />\r\nUpon employee signing, we provide the facilities, it, and all the tools and equipment your offshore team requires to deliver the results you need. We can place your team at any of our fully equipped and flexible office spaces.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>5 |&nbsp;Continuous TMC Support</strong><br />\r\nThe HR, Admin and IT team at TMC will be at you and your new employees&rsquo; clearance allowing you to focus on core objectives and manage your offshore team directly.<br />\r\n&nbsp;</p>', 1, 1, 2, '2022-02-10 22:03:36', '2022-02-20 03:32:02'),
+(3, 'CONSULTANCY & OUTSOURCING', '202202190703IT.png', '<p>We assist customers in evaluating various technology strategies and, as a result, aligning their technology strategy with their business or process objectives. We provide unique outsourcing facilities. You can build your outsourced team in 5 easy steps-&nbsp;</p>\r\n\r\n<p><strong>1 |&nbsp;Free Initial Consultation</strong><br />\r\nStandardize meeting with client and tmc HR team to discuss specific talent needs, goals and job descriptions for your future team.In the bangladesh. During this initial meeting, we will also outline. Potential costs and salaries for your intended positions.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>2 | Sourcing &amp; Initial Interview</strong><br />\r\nWe leverage our excellent employer branding and reputation to attract the best possible talent in the bangladesh. We tap multiple job portals, social media platforms, engage executive search techniques and roll out employee referral programs to gather resumes.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>3 | Contract Signing</strong><br />\r\nOnce successful candidates are identified, TMC prepares the employment offer and contract, then extends them as soon as approval is received. Compensation and benefits packages, as well as KPIs, are clearly defined and start date is agreed upon with candidates.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>4 | Employee Onboarding &amp; Set up</strong><br />\r\nUpon employee signing, we provide the facilities, it, and all the tools and equipment your offshore team requires to deliver the results you need. We can place your team at any of our fully equipped and flexible office spaces.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>5 |&nbsp;Continuous TMC Support</strong><br />\r\nThe HR, Admin and IT team at TMC will be at you and your new employees&rsquo; clearance allowing you to focus on core objectives and manage your offshore team directly.<br />\r\n&nbsp;</p>', 1, 1, 2, '2022-02-10 22:03:36', '2024-08-21 00:31:04'),
 (4, 'CYBER SECURITY SOLUTIONS', '202202190704Web.png', '<p>Our offering of cyber security solutions includes a wide range of services tailored to suit all of your firm&#39;s requirements such as Penetration Testing, DDoS IP Protection, Managed Cyber Security and so on.</p>\r\n\r\n<p>These&nbsp;are also adaptable to your individual needs, with extensive notifications, reporting, and dashboards. We assist you in selecting the optimal solution, one that is suited precisely to the cyber security dangers that your firm confronts.</p>', 1, 1, 2, '2022-02-10 22:04:04', '2022-02-20 03:25:08'),
 (5, 'DEVELOPMENT & IMPLEMENT ERP', '202202190704ERP.png', '<p>We provide scalable, enterprise-wide ERP solutions that automate crucial processes and give vital data insights across on-premise, mobile, and web-based platforms. We deploy and implement bespoke networks, servers, security, and data management systems throughout your whole enterprise while ensuring data integrity.</p>\r\n\r\n<p>We also provide expert advisors, designers, and developers as a leading web development agency to take your online presence to the next level.</p>', 1, 1, 2, '2022-02-10 22:04:27', '2022-02-20 03:28:20');
 
@@ -1702,13 +1705,13 @@ ALTER TABLE `media_publications`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `menu_permissions`
 --
 ALTER TABLE `menu_permissions`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=530;
 
 --
 -- AUTO_INCREMENT for table `menu_posts`
