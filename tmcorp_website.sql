@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 05, 2023 at 05:00 AM
--- Server version: 10.5.20-MariaDB-cll-lve
--- PHP Version: 7.4.27
+-- Generation Time: Aug 20, 2024 at 06:31 AM
+-- Server version: 10.6.18-MariaDB-cll-lve
+-- PHP Version: 8.1.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -253,7 +253,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `mobile`, `telephone`, `email`, `registered_address`, `corporate_address`, `name`, `facebook`, `twitter`, `linkedin`, `youtube`, `image`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(2, '01708 456 005', '+880 2 55045142-9', 'info@technomole.com', '246, Gulshan Link Road, Tejgaon Industrial Area,Dhaka-1208, Bangladesh.', 'Police Plaza Concord, Level #07, Plot #02, Road #144, Gulshan C/A, Dhaka-1212', 'Techno Mole Creations Ltd.', 'https://www.facebook.com/technomolecreations/', 'https://twitter.com/manusherjonno', 'https://www.instagram.com/mjf_bangladesh/', 'https://www.youtube.com/watch?v=Ddi-fYeKbOQ', '202202101507LOGO____TMC.png', 1, 1, 4, '2021-04-18 22:44:56', '2023-11-28 14:23:38');
+(2, '01708 456 005', '+880 2 55045142-9', 'info@technomole.com', '246, Gulshan Link Road, Tejgaon Industrial Area,Dhaka-1208, Bangladesh.', 'Police Plaza Concord, Level #07, Plot #02, Road #144, Gulshan C/A, Dhaka-1212', 'Techno Mole Creations Ltd.', 'https://www.facebook.com/technomolecreations/', 'https://twitter.com/manusherjonno', 'https://www.instagram.com/mjf_bangladesh/', 'https://www.youtube.com/watch?v=ZtWixzIGtyA', '202202101507LOGO____TMC.png', 1, 1, 4, '2021-04-18 22:44:56', '2023-11-28 14:23:38');
 
 -- --------------------------------------------------------
 
@@ -540,7 +540,7 @@ CREATE TABLE `menu_permissions` (
   `menu_from` varchar(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `menu_permissions`
@@ -1229,10 +1229,10 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `designation`, `image`, `description`, `facebook`, `twitter`, `viber`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'MOHAMMED SHAHIDUL ISLAM', 'Managing Director', '202202171214charman-sir-1.png', '<p>Mohammed Shahidul Islam was born in 1966 to a famous Muslim family in the area of Noakhali, Bangladesh. He studied in the University of Chittagong, where he earned Bachelor&#39;s and Master&#39;s degrees in Public Administration in 1987 and 1988, respectively. Mr. Islam demonstrated his entrepreneurial skills by launching his first business, HNS Automobiles, a trading firm for foreign autos, in 1991. HNS Automobiles has evolved to become one of the market leaders in dealing imported automobiles since its establishment.</p>\r\n\r\n<p>Following that, HNS Automobiles backed several successful ventures which have collectively formed one of the largest conglomerates of Bangladesh, namely HNS Group. Today, HNS Automobiles, HNS Automobiles Ltd, HNS Corporation, HNS Heavy Industries Ltd, HNS Engineering &amp; Services Ltd, HNS CNG &amp; LPG Conversion, HNS International, HNS Premium Ltd, Techno Mole Creations Ltd, Shahar Style are all part of the HNS Group. He was also the Secretary General of the Bangladesh Reconditioned Vehicles Importers and Dealers Association (BARVIDA).</p>\r\n\r\n<p>Apart from being an entrepreneur, he is also a philanthropist. He has been playing active roles in the establishment of various humanitarian &amp; educational organizations.</p>', 'https://www.facebook.com/mohammed.islam.589', 'https://www.twitter.com', 'https://www.linkedin.com/feed/', 1, 1, 2, '2022-02-11 00:17:27', '2022-02-20 11:16:47'),
-(3, 'Engr. A.K.M Hossain Ali', 'Chief Consultant', '202311280930202202101507LOGO____TMC.png', NULL, 'https://www.facebook.com', 'https://www.twitter.com', 'https://www.linkedin.com/in/bipul-kumar-saha-24608748/', 1, 1, 4, '2022-02-11 00:20:32', '2023-11-28 14:30:28'),
-(9, 'BIPUL KUMAR SAHA', 'Senior Consultant', '202311291154202202190714bipul-sir.png', '<p>Bipul Kumar Saha is the Chief Consultant&nbsp;of Techno Mole Creations Ltd. and the HNS Group&#39;s Group Finance Head.</p>\r\n\r\n<p>He earned his EMBA in Finance from East West University and his M. Com in Accounting from Jagannath University. Prior to his present position, which he has had since November 2019, he worked for Unifill Group from June 2017 to October 2019, Madina Group from April 2016 to May 2017, and Banglalink from May 2006 to March 2016.</p>', 'https://www.facebook.com', NULL, NULL, 1, 4, 4, '2023-11-29 16:53:13', '2023-11-29 16:54:56'),
-(7, 'Md. Ashraful Islam Masum', 'Sr. Software Engineer', '202312050953ashraful.jpg', NULL, 'https://www.facebook.com/technomolecreations', 'https://www.twitter.com', 'https://www.linkedin.com/in/bipul-kumar-saha-24608748/', 1, 4, 4, '2023-11-28 14:21:01', '2023-12-05 14:53:43');
+(1, 'MOHAMMED SHAHIDUL ISLAM', 'Managing Director', '202403310527Mohammed Shahidul Islam.jpeg', '<p>Mohammed Shahidul Islam was born in 1966 to a famous Muslim family in the area of Noakhali, Bangladesh. He studied in the University of Chittagong, where he earned Bachelor&#39;s and Master&#39;s degrees in Public Administration in 1987 and 1988, respectively. Mr. Islam demonstrated his entrepreneurial skills by launching his first business, HNS Automobiles, a trading firm for foreign autos, in 1991. HNS Automobiles has evolved to become one of the market leaders in dealing imported automobiles since its establishment.</p>\r\n\r\n<p>Following that, HNS Automobiles backed several successful ventures which have collectively formed one of the largest conglomerates of Bangladesh, namely HNS Group. Today, HNS Automobiles, HNS Automobiles Ltd, HNS Corporation, HNS Heavy Industries Ltd, HNS Engineering &amp; Services Ltd, HNS CNG &amp; LPG Conversion, HNS International, HNS Premium Ltd, Techno Mole Creations Ltd, Shahar Style are all part of the HNS Group. He was also the Secretary General of the Bangladesh Reconditioned Vehicles Importers and Dealers Association (BARVIDA).</p>\r\n\r\n<p>Apart from being an entrepreneur, he is also a philanthropist. He has been playing active roles in the establishment of various humanitarian &amp; educational organizations.</p>', 'https://www.facebook.com/mohammed.islam.589', 'https://www.twitter.com', 'https://www.linkedin.com/feed/', 1, 1, 4, '2022-02-11 00:17:27', '2024-03-31 09:27:25'),
+(3, 'Engr. A.K.M. Hossain Ali', 'Chief Consultant', '202312061023Photo-Hossain Ali (1).jpg', NULL, 'https://www.facebook.com', 'https://www.twitter.com', 'https://www.linkedin.com/in/bipul-kumar-saha-24608748/', 1, 1, 2, '2022-02-11 00:20:32', '2023-12-06 15:23:28'),
+(9, 'BIPUL KUMAR SAHA', 'Senior Consultant', '202403310527Bipul Sir 3.jpg', '<p>Bipul Kumar Saha is the Chief Consultant&nbsp;of Techno Mole Creations Ltd. and the HNS Group&#39;s Group Finance Head.</p>\r\n\r\n<p>He earned his EMBA in Finance from East West University and his M. Com in Accounting from Jagannath University. Prior to his present position, which he has had since November 2019, he worked for Unifill Group from June 2017 to October 2019, Madina Group from April 2016 to May 2017, and Banglalink from May 2006 to March 2016.</p>', 'https://www.facebook.com', NULL, NULL, 1, 4, 4, '2023-11-29 16:53:13', '2024-03-31 09:27:55'),
+(7, 'Md. Ashraful Islam Masum', 'Sr. Software Engineer', '202312061015466 (2).png', NULL, 'https://www.facebook.com/technomolecreations', 'https://www.twitter.com', 'https://www.linkedin.com/in/bipul-kumar-saha-24608748/', 1, 4, 2, '2023-11-28 14:21:01', '2023-12-06 15:15:06');
 
 -- --------------------------------------------------------
 
