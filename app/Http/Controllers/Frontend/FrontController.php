@@ -11,6 +11,7 @@ use App\Model\MenuPost;
 use App\Model\MenuPostFile;
 use App\Model\Contact;
 use App\Model\Service;
+use App\Model\Work;
 use App\Model\About;
 use App\Model\Team;
 use App\Model\HowWork;
@@ -85,6 +86,26 @@ class FrontController extends Controller
         $data['partners'] = $this->partner;
         $data['page_title'] = 'Service Details';
         return view('frontend.single_pages.service_details',$data);
+    }
+
+    public function ourWorks()
+    {
+        $data['specialists'] = Team::get()->take(4);
+        $data['works'] = Work::all();
+        $data['contact'] = $this->contact;
+        $data['partners'] = $this->partner;
+        $data['page_title'] = 'Our Works';
+        return view('frontend.single_pages.works',$data);
+    }
+
+    public function ourWorksDetails($id)
+    {
+        $data['specialists'] = Team::get()->take(4);
+        $data['work'] = Work::find($id);
+        $data['contact'] = $this->contact;
+        $data['partners'] = $this->partner;
+        $data['page_title'] = 'Work Details';
+        return view('frontend.single_pages.work_details',$data);
     }
 
     public function ourSpecialist()

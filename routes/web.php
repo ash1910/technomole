@@ -23,6 +23,8 @@ Route::get('/','Frontend\FrontController@index');
 Route::get('/about-us','Frontend\FrontController@aboutUs')->name('frontend.about-us');
 Route::get('/services','Frontend\FrontController@ourServices')->name('frontend.our-services');
 Route::get('/service-details/{id}','Frontend\FrontController@ourServicesDetails')->name('frontend.our-services.details');
+Route::get('/works','Frontend\FrontController@ourWorks')->name('frontend.our-works');
+Route::get('/work-details/{id}','Frontend\FrontController@ourWorksDetails')->name('frontend.our-works.details');
 Route::get('/specialists','Frontend\FrontController@ourSpecialist')->name('frontend.our-specialist');
 Route::get('/contact-us','Frontend\FrontController@contactUs')->name('frontend.contact-us');
 Route::post('/contact-store','Frontend\FrontController@contactStore')->name('frontend.contact-store');

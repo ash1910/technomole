@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 20, 2024 at 06:31 AM
--- Server version: 10.6.18-MariaDB-cll-lve
--- PHP Version: 8.1.28
+-- Host: localhost:8889
+-- Generation Time: Aug 21, 2024 at 12:00 PM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tmcorp_website`
+-- Database: `technomole_db`
 --
 
 -- --------------------------------------------------------
@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `abouts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) DEFAULT NULL,
-  `about_image` varchar(191) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `offer` longtext DEFAULT NULL,
-  `how_work_image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `offer` longtext COLLATE utf8mb4_unicode_ci,
+  `how_work_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -56,9 +56,9 @@ INSERT INTO `abouts` (`id`, `title`, `about_image`, `description`, `offer`, `how
 
 CREATE TABLE `audio_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -83,8 +83,8 @@ INSERT INTO `audio_categories` (`id`, `title_en`, `title_bn`, `status`, `created
 CREATE TABLE `audio_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `audio_category_id` int(11) DEFAULT NULL,
-  `file` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -112,13 +112,13 @@ INSERT INTO `audio_galleries` (`id`, `audio_category_id`, `file`, `status`, `cre
 
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `description_en` longtext DEFAULT NULL,
-  `description_bn` longtext DEFAULT NULL,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_en` longtext COLLATE utf8mb4_unicode_ci,
+  `description_bn` longtext COLLATE utf8mb4_unicode_ci,
   `date` date DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -147,7 +147,7 @@ INSERT INTO `blogs` (`id`, `title_en`, `title_bn`, `description_en`, `descriptio
 CREATE TABLE `blog_files` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `blog_id` int(11) DEFAULT NULL,
-  `file` varchar(191) DEFAULT NULL,
+  `file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -178,15 +178,15 @@ INSERT INTO `blog_files` (`id`, `blog_id`, `file`, `created_at`, `updated_at`) V
 CREATE TABLE `comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `blog_id` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
-  `mobile` varchar(191) NOT NULL,
-  `subject` varchar(191) NOT NULL,
-  `message` text NOT NULL,
-  `reply` text DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reply` text COLLATE utf8mb4_unicode_ci,
   `reply_by` int(4) DEFAULT NULL,
   `reply_date` date DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=pending,1=approved',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=pending,1=approved',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -206,11 +206,11 @@ INSERT INTO `comments` (`id`, `blog_id`, `name`, `email`, `mobile`, `subject`, `
 
 CREATE TABLE `communicates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
-  `mobile` varchar(191) DEFAULT NULL,
-  `designation` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -230,18 +230,18 @@ INSERT INTO `communicates` (`id`, `name`, `email`, `mobile`, `designation`, `sta
 
 CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `mobile` varchar(191) DEFAULT NULL,
-  `telephone` varchar(191) DEFAULT NULL,
-  `email` varchar(191) DEFAULT NULL,
-  `registered_address` varchar(191) DEFAULT NULL,
-  `corporate_address` varchar(191) DEFAULT NULL,
-  `name` varchar(191) DEFAULT NULL,
-  `facebook` varchar(191) DEFAULT NULL,
-  `twitter` varchar(191) DEFAULT NULL,
-  `linkedin` varchar(191) DEFAULT NULL,
-  `youtube` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telephone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `registered_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `corporate_address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -263,19 +263,19 @@ INSERT INTO `contacts` (`id`, `mobile`, `telephone`, `email`, `registered_addres
 
 CREATE TABLE `frontend_menus` (
   `id` int(10) UNSIGNED NOT NULL,
-  `rand_id` varchar(191) DEFAULT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT 0,
-  `url_link` varchar(191) DEFAULT NULL,
-  `url_link_type` varchar(191) DEFAULT NULL,
-  `status` int(11) DEFAULT 1,
-  `parent_id` varchar(191) DEFAULT NULL,
+  `rand_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  `url_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_link_type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `parent_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `modified_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `target` varchar(10) DEFAULT NULL
+  `target` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -361,9 +361,9 @@ INSERT INTO `frontend_menus` (`id`, `rand_id`, `title_en`, `title_bn`, `sort_ord
 
 CREATE TABLE `home_links` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `url_link` varchar(191) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -398,9 +398,9 @@ INSERT INTO `home_links` (`id`, `name`, `url_link`, `status`, `created_at`, `upd
 
 CREATE TABLE `how_works` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `description` longtext DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -424,7 +424,7 @@ INSERT INTO `how_works` (`id`, `description`, `image`, `status`, `created_by`, `
 
 CREATE TABLE `icons` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT 'N/A',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'N/A',
   `deleted_at` datetime DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -451,13 +451,13 @@ INSERT INTO `icons` (`id`, `name`, `deleted_at`, `created_at`, `updated_at`) VAL
 
 CREATE TABLE `media_publications` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `description_en` longtext DEFAULT NULL,
-  `description_bn` longtext DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `description_en` longtext COLLATE utf8mb4_unicode_ci,
+  `description_bn` longtext COLLATE utf8mb4_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -479,12 +479,12 @@ INSERT INTO `media_publications` (`id`, `title_en`, `title_bn`, `image`, `date`,
 
 CREATE TABLE `menus` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `parent` int(11) NOT NULL DEFAULT 0,
-  `route` varchar(255) NOT NULL,
-  `sort` int(11) NOT NULL DEFAULT 0,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `icon` varchar(255) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parent` int(11) NOT NULL DEFAULT '0',
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -540,7 +540,7 @@ CREATE TABLE `menu_permissions` (
   `menu_from` varchar(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu_permissions`
@@ -584,14 +584,14 @@ INSERT INTO `menu_permissions` (`id`, `menu_id`, `role_id`, `permitted_route`, `
 
 CREATE TABLE `menu_posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `description_en` longtext DEFAULT NULL,
-  `description_bn` longtext DEFAULT NULL,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_en` longtext COLLATE utf8mb4_unicode_ci,
+  `description_bn` longtext COLLATE utf8mb4_unicode_ci,
   `date` date DEFAULT NULL,
-  `post_type` tinyint(4) DEFAULT 0 COMMENT '1=Advocacy_compaign,2=media_publication,3=compaign_metarials',
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `post_type` tinyint(4) DEFAULT '0' COMMENT '1=Advocacy_compaign,2=media_publication,3=compaign_metarials',
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -657,7 +657,7 @@ INSERT INTO `menu_posts` (`id`, `title_en`, `title_bn`, `description_en`, `descr
 CREATE TABLE `menu_post_files` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `menu_post_id` int(11) DEFAULT NULL,
-  `file` text DEFAULT NULL,
+  `file` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -804,10 +804,10 @@ INSERT INTO `menu_post_files` (`id`, `menu_post_id`, `file`, `created_at`, `upda
 CREATE TABLE `menu_routes` (
   `id` int(10) UNSIGNED NOT NULL,
   `menu_id` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` int(11) DEFAULT NULL,
-  `route` varchar(191) NOT NULL,
-  `status` tinyint(4) DEFAULT 1,
+  `route` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(4) DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -820,7 +820,7 @@ CREATE TABLE `menu_routes` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(191) NOT NULL,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -870,7 +870,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `news_letters` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(191) NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -890,9 +890,9 @@ INSERT INTO `news_letters` (`id`, `email`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `partners` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `site_link` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -919,8 +919,8 @@ INSERT INTO `partners` (`id`, `image`, `site_link`, `status`, `created_by`, `upd
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(191) NOT NULL,
-  `token` varchar(191) NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -940,7 +940,7 @@ CREATE TABLE `performances` (
   `dot_net_stack` int(11) DEFAULT NULL,
   `database_stack` int(11) DEFAULT NULL,
   `frontend_stack` int(11) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -962,9 +962,9 @@ INSERT INTO `performances` (`id`, `experts`, `partners`, `it_experience`, `happy
 
 CREATE TABLE `photo_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -990,9 +990,9 @@ INSERT INTO `photo_categories` (`id`, `title_en`, `title_bn`, `status`, `created
 CREATE TABLE `photo_folders` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `photo_category_id` int(11) DEFAULT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1017,8 +1017,8 @@ CREATE TABLE `photo_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `photo_category_id` int(11) DEFAULT NULL,
   `photo_folder_id` int(11) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1042,8 +1042,8 @@ INSERT INTO `photo_galleries` (`id`, `photo_category_id`, `photo_folder_id`, `im
 CREATE TABLE `photo_gallery_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `photo_gallery_id` int(11) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=No for folder,1=Yes for folder',
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=No for folder,1=Yes for folder',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1074,10 +1074,10 @@ INSERT INTO `photo_gallery_details` (`id`, `photo_gallery_id`, `image`, `status`
 
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `description` text DEFAULT NULL,
-  `role_slug` text DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `role_slug` text COLLATE utf8mb4_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `deleted_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
@@ -1102,10 +1102,10 @@ INSERT INTO `roles` (`id`, `name`, `description`, `role_slug`, `status`, `delete
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1130,48 +1130,48 @@ INSERT INTO `services` (`id`, `title`, `image`, `description`, `status`, `create
 
 CREATE TABLE `site_settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `company_name` text DEFAULT NULL,
-  `site_title` text DEFAULT NULL,
-  `site_title_bn` text DEFAULT NULL,
-  `site_short_description` text DEFAULT NULL,
-  `site_short_description_bn` text DEFAULT NULL,
-  `site_header_logo` text DEFAULT NULL,
-  `site_footer_logo` text DEFAULT NULL,
-  `site_favicon` text DEFAULT NULL,
-  `site_banner_image` text DEFAULT NULL,
-  `site_email` varchar(191) DEFAULT NULL,
-  `site_phone_primary` varchar(191) DEFAULT NULL,
-  `site_phone_secondary` varchar(191) DEFAULT NULL,
-  `site_address` text DEFAULT NULL,
-  `mail_driver` varchar(191) DEFAULT NULL,
-  `mail_host` varchar(191) DEFAULT NULL,
-  `mail_port` varchar(191) DEFAULT NULL,
-  `mail_username` varchar(191) DEFAULT NULL,
-  `mail_password` varchar(191) DEFAULT NULL,
-  `mail_encryption` varchar(191) DEFAULT NULL,
-  `facebook_url` text DEFAULT NULL,
-  `twitter_url` text DEFAULT NULL,
-  `google_plus_url` text DEFAULT NULL,
-  `linkedin_url` text DEFAULT NULL,
-  `youtube_url` text DEFAULT NULL,
-  `instagram_url` text DEFAULT NULL,
-  `pinterest_url` text DEFAULT NULL,
-  `tumblr_url` text DEFAULT NULL,
-  `flickr_url` text DEFAULT NULL,
-  `recaptcha_key` text DEFAULT NULL,
-  `recaptcha_secret` text DEFAULT NULL,
-  `facebook_key` text DEFAULT NULL,
-  `facebook_secret` text DEFAULT NULL,
-  `twitter_key` text DEFAULT NULL,
-  `twitter_secret` text DEFAULT NULL,
-  `google_plus_key` text DEFAULT NULL,
-  `google_plus_secret` text DEFAULT NULL,
-  `google_map_api` varchar(191) DEFAULT NULL,
-  `image_width` text DEFAULT NULL,
-  `image_height` text DEFAULT NULL,
-  `image_size` text DEFAULT NULL,
-  `file_type` text DEFAULT NULL,
-  `notification_type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = toastr; 2 = sweetalert; 3 = notifyjs',
+  `company_name` text COLLATE utf8mb4_unicode_ci,
+  `site_title` text COLLATE utf8mb4_unicode_ci,
+  `site_title_bn` text COLLATE utf8mb4_unicode_ci,
+  `site_short_description` text COLLATE utf8mb4_unicode_ci,
+  `site_short_description_bn` text COLLATE utf8mb4_unicode_ci,
+  `site_header_logo` text COLLATE utf8mb4_unicode_ci,
+  `site_footer_logo` text COLLATE utf8mb4_unicode_ci,
+  `site_favicon` text COLLATE utf8mb4_unicode_ci,
+  `site_banner_image` text COLLATE utf8mb4_unicode_ci,
+  `site_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_phone_primary` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_phone_secondary` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_address` text COLLATE utf8mb4_unicode_ci,
+  `mail_driver` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_host` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_port` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_username` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_encryption` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook_url` text COLLATE utf8mb4_unicode_ci,
+  `twitter_url` text COLLATE utf8mb4_unicode_ci,
+  `google_plus_url` text COLLATE utf8mb4_unicode_ci,
+  `linkedin_url` text COLLATE utf8mb4_unicode_ci,
+  `youtube_url` text COLLATE utf8mb4_unicode_ci,
+  `instagram_url` text COLLATE utf8mb4_unicode_ci,
+  `pinterest_url` text COLLATE utf8mb4_unicode_ci,
+  `tumblr_url` text COLLATE utf8mb4_unicode_ci,
+  `flickr_url` text COLLATE utf8mb4_unicode_ci,
+  `recaptcha_key` text COLLATE utf8mb4_unicode_ci,
+  `recaptcha_secret` text COLLATE utf8mb4_unicode_ci,
+  `facebook_key` text COLLATE utf8mb4_unicode_ci,
+  `facebook_secret` text COLLATE utf8mb4_unicode_ci,
+  `twitter_key` text COLLATE utf8mb4_unicode_ci,
+  `twitter_secret` text COLLATE utf8mb4_unicode_ci,
+  `google_plus_key` text COLLATE utf8mb4_unicode_ci,
+  `google_plus_secret` text COLLATE utf8mb4_unicode_ci,
+  `google_map_api` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_width` text COLLATE utf8mb4_unicode_ci,
+  `image_height` text COLLATE utf8mb4_unicode_ci,
+  `image_size` text COLLATE utf8mb4_unicode_ci,
+  `file_type` text COLLATE utf8mb4_unicode_ci,
+  `notification_type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1 = toastr; 2 = sweetalert; 3 = notifyjs',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1192,12 +1192,12 @@ INSERT INTO `site_settings` (`id`, `company_name`, `site_title`, `site_title_bn`
 CREATE TABLE `sub_comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
-  `mobile` varchar(191) NOT NULL,
-  `message` text NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `approved_by` int(11) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=pending,1=approved',
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=pending,1=approved',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1210,14 +1210,14 @@ CREATE TABLE `sub_comments` (
 
 CREATE TABLE `teams` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) DEFAULT NULL,
-  `designation` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  `facebook` varchar(191) DEFAULT NULL,
-  `twitter` varchar(191) DEFAULT NULL,
-  `viber` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `viber` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1242,13 +1242,13 @@ INSERT INTO `teams` (`id`, `name`, `designation`, `image`, `description`, `faceb
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) DEFAULT NULL,
-  `username` varchar(191) DEFAULT NULL,
-  `email` varchar(191) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deleted_at` datetime(6) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1299,9 +1299,9 @@ INSERT INTO `user_roles` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`
 
 CREATE TABLE `video_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_en` varchar(191) DEFAULT NULL,
-  `title_bn` varchar(191) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `title_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1329,8 +1329,8 @@ INSERT INTO `video_categories` (`id`, `title_en`, `title_bn`, `status`, `created
 CREATE TABLE `video_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `video_category_id` int(11) DEFAULT NULL,
-  `url` longtext DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `url` longtext COLLATE utf8mb4_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1357,6 +1357,34 @@ INSERT INTO `video_galleries` (`id`, `video_category_id`, `url`, `status`, `crea
 (14, 1, 'https://youtu.be/bN5B1FlUoT8', 1, 1, NULL, '2021-06-17 16:13:46', '2021-06-17 16:13:46'),
 (15, 1, 'https://youtube/YBBbKY8Pshg', 1, 1, 1, '2021-06-17 16:19:41', '2021-07-05 10:33:28'),
 (16, 2, 'https://www.youtube.com/watch?v=eIPJ-DJrLok', 1, 1, NULL, '2021-06-17 16:21:09', '2021-06-17 16:21:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `works`
+--
+
+CREATE TABLE `works` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `works`
+--
+
+INSERT INTO `works` (`id`, `title`, `image`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(2, 'B2B & B2C SOLUTIONS', '202202190907B2B.png', '<p><a href=\"https://hnsmartbd.com\">HNSmart</a>&mdash;initially a B2C, is a recent venture of Bangladesh&#39;s flourishing e-commerce sector, built on the expertise and reputation of HNS Group.</p>\r\n\r\n<p>We provide solutions for B2B i.e., a form&nbsp;of transaction conducted between companies, rather than between a company and individual consumer. We also make available solutions for B2C i.e., the&nbsp;process of selling products and services directly between a company and an end-user of a&nbsp;product or service.</p>\r\n\r\n<p>In today&rsquo;s challenging business atmosphere which line up flexibility, swiftness, and competence, a healthy IT&nbsp;approach is crucial. We help you achieve these qualities in your IT strategy by providing you system integration, testing, application development and management services and solutions.</p>', 1, 1, 2, '2022-02-10 22:02:56', '2022-08-02 03:39:28'),
+(3, 'CONSULTANCY & OUTSOURCING', '202202190703IT.png', '<p>We assist customers in evaluating various technology strategies and, as a result, aligning their technology strategy with their business or process objectives. We provide unique outsourcing facilities. You can build your outsourced team in 5 easy steps-</p>\r\n\r\n<p><strong>1 |&nbsp;Free Initial Consultation</strong><br />\r\nStandardize meeting with client and tmc HR team to discuss specific talent needs, goals and job descriptions for your future team.In the bangladesh. During this initial meeting, we will also outline. Potential costs and salaries for your intended positions.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>2 | Sourcing &amp; Initial Interview</strong><br />\r\nWe leverage our excellent employer branding and reputation to attract the best possible talent in the bangladesh. We tap multiple job portals, social media platforms, engage executive search techniques and roll out employee referral programs to gather resumes.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>3 | Contract Signing</strong><br />\r\nOnce successful candidates are identified, TMC prepares the employment offer and contract, then extends them as soon as approval is received. Compensation and benefits packages, as well as KPIs, are clearly defined and start date is agreed upon with candidates.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>4 | Employee Onboarding &amp; Set up</strong><br />\r\nUpon employee signing, we provide the facilities, it, and all the tools and equipment your offshore team requires to deliver the results you need. We can place your team at any of our fully equipped and flexible office spaces.<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>5 |&nbsp;Continuous TMC Support</strong><br />\r\nThe HR, Admin and IT team at TMC will be at you and your new employees&rsquo; clearance allowing you to focus on core objectives and manage your offshore team directly.<br />\r\n&nbsp;</p>', 1, 1, 2, '2022-02-10 22:03:36', '2022-02-20 03:32:02'),
+(4, 'CYBER SECURITY SOLUTIONS', '202202190704Web.png', '<p>Our offering of cyber security solutions includes a wide range of services tailored to suit all of your firm&#39;s requirements such as Penetration Testing, DDoS IP Protection, Managed Cyber Security and so on.</p>\r\n\r\n<p>These&nbsp;are also adaptable to your individual needs, with extensive notifications, reporting, and dashboards. We assist you in selecting the optimal solution, one that is suited precisely to the cyber security dangers that your firm confronts.</p>', 1, 1, 2, '2022-02-10 22:04:04', '2022-02-20 03:25:08'),
+(5, 'DEVELOPMENT & IMPLEMENT ERP', '202202190704ERP.png', '<p>We provide scalable, enterprise-wide ERP solutions that automate crucial processes and give vital data insights across on-premise, mobile, and web-based platforms. We deploy and implement bespoke networks, servers, security, and data management systems throughout your whole enterprise while ensuring data integrity.</p>\r\n\r\n<p>We also provide expert advisors, designers, and developers as a leading web development agency to take your online presence to the next level.</p>', 1, 1, 2, '2022-02-10 22:04:27', '2022-02-20 03:28:20');
 
 --
 -- Indexes for dumped tables
@@ -1581,6 +1609,12 @@ ALTER TABLE `video_galleries`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `works`
+--
+ALTER TABLE `works`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1793,6 +1827,12 @@ ALTER TABLE `video_categories`
 --
 ALTER TABLE `video_galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `works`
+--
+ALTER TABLE `works`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

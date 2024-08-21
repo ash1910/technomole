@@ -177,6 +177,10 @@
                               WHAT CAN WE DO FOR YOU?
                               @elseif($page_title=='Service Details')
                               WHAT CAN WE DO FOR YOU?
+                              @elseif($page_title=='Our Works')
+                              Here's some of our great works created for happy clients.
+                              @elseif($page_title=='Work Details')
+                              Here's some of our great works created for happy clients.
                               @elseif($page_title=='Our Management')
                               OUR MANAGEMENT
                               @elseif($page_title=='Contact Us')
