@@ -116,7 +116,7 @@
                       <div class="elementor-widget-wrap elementor-element-populated">
                          <div class="elementor-element elementor-element-f64931e elementor-widget elementor-widget-image" data-id="f64931e" data-element_type="widget" data-widget_type="image.default">
                             <div class="elementor-widget-container"> 
-                              <img width="180" height="190" src="{{url('public/upload/images/'.$team->image)}}" class="attachment-large size-large mobile_specialist_img" alt="" loading="lazy" srcset="{{url('public/upload/images/'.$team->image)}}" style="margin-left: 13%;"> 
+                              <img width="180" height="190" src="{{url('public/upload/images/'.$team->image)}}" class="attachment-large size-large mobile_specialist_img" alt="" loading="lazy" srcset="{{url('public/upload/images/'.$team->image)}}" style="margin-left: 13%; border-radius: 50%; border: 3px solid #ccc;"> 
                            </div>
                          </div>
                          <div class="elementor-element elementor-element-bea3b92 elementor-widget elementor-widget-text-editor" data-id="bea3b92" data-element_type="widget" data-widget_type="text-editor.default">

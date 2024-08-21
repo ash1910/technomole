@@ -1,0 +1,24 @@
+[02-Jun-2024 16:10:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
+[02-Jun-2024 16:10:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
+[02-Jun-2024 16:11:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
+[04-Jun-2024 06:18:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
+[04-Jun-2024 06:18:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
+[04-Jun-2024 06:18:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/tmcorp/public_html/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/tmcorp/public_html/config/cache.php on line 21
